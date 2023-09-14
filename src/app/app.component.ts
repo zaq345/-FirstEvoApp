@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FirstEvoApp';
+  musicArtists = ['FIZICA', 'Fun Mode', 'Radio Tapok', 'Тони Раут', 'Plamenev', 'GroTTesque']
+  date = new Date();
+  num = 13;
 }
