@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import  Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FirstEvoApp';
+
+  notiflixTest() {
+    Notiflix.Notify.info('Notiflix works');
+  }
 }
