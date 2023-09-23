@@ -4,7 +4,7 @@ import { InlineComponent } from './inline/inline.component';
 
 const routes: Routes = [
   {
-    path: 'inline',
+    path: 'open-graph',
     component: InlineComponent,
   }
 ];
