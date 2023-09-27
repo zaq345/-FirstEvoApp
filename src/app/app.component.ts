@@ -1,25 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Book } from './interface/book';
 import { MatTable } from '@angular/material/table';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  // bookForm: FormGroup;
-
-  // constructor() {
-  //   this.bookForm = new FormGroup({
-  //     title: new FormControl('', Validators.required),
-  //     author: new FormControl('', Validators.required)
-  //   });
-  // }
-  ngOnInit(): void {
-    console.log(this.bookTitle.trim().length > 0 && this.bookAuthor.trim().length > 0)
-  }
+export class AppComponent{
 
   @ViewChild(MatTable) table!: MatTable<any>;
 
