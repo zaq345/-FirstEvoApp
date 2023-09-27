@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    min-width: 150px;
+    max-width: 850px;
+    width: 100%; 
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.form__col{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 10px;
+}
+
+/* .form__input {
+    width: 100%;
+    margin-right: 10px;
+} */
+
+.form__button {
+    width: 200px;
+    margin: auto 0;
+}
+
+.table__wrap {
+    max-width: 850px;
+    margin: 0 auto;
+}
+.table__caption {
+    margin-bottom: 10px;
+}
+
+.alert{
+    color: red;
+}
