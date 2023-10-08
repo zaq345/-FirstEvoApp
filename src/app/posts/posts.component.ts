@@ -15,7 +15,6 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.data.getPosts().subscribe({
       next: data => {
-        console.log(data);
         this.posts = data as Post[];
       }
     })

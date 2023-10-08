@@ -11,7 +11,7 @@ export class DataService {
   role: 'user' | 'admin' = 'user';
 
   getPosts() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts', { params: { _limit: 4 } });
+    return this.http.get('https://jsonplaceholder.typicode.com/posts', { params: { _limit: 3 } });
   }
 
   getPost(id: number | string) {
