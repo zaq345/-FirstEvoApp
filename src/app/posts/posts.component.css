@@ -1,0 +1,12 @@
+.posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 30px;
+    justify-content: space-evenly;
+}
+.posts__post{
+    width: 400px;
+    margin-bottom: 20px;
+}

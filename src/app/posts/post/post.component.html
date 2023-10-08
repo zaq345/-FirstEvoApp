@@ -1,0 +1,15 @@
+<div class="post">
+    <div class="post__content">
+        <p><b>Title:</b> {{post.title}}</p>
+        <p><b>User:</b> {{post.userId}}</p>
+        <p><b>Id:</b> {{post.id}}</p>
+        <p><b>Body:</b> {{post.body}}</p>
+    </div>
+    <div class="post__btns">
+        <button class="post__btn" [routerLink]="'/posts/' + post.id + '/edit'" mat-flat-button color="primary">Редактировать</button>
+        <button class="post__btn" routerLink="/posts" mat-flat-button color="primary">Назад</button>
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

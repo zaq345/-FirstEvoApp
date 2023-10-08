@@ -1,0 +1,12 @@
+.post{
+    margin: auto;
+    max-width: 80%;
+}
+.post__btns{
+    display: flex;
+    flex-direction: column;
+}
+.post__btn{
+    margin-bottom: 10px;
+    max-width: 150px;
+}
