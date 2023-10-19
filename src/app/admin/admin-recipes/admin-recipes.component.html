@@ -1,0 +1,41 @@
+<div class="recipes__wrap">
+    <div class="recipes">
+
+        <div class="recipes__header">
+            <div class="recipes__header-name">
+                Название рецепта
+            </div>
+            <div class="recipes__header-desc">
+                Краткое описание
+            </div>
+            <div class="recipes__header-id">
+                ID рецепта
+            </div>
+            <div class="recipes__header-tag">
+                Категория
+            </div>
+        </div>
+
+        <div class="recipes__item" *ngFor="let item of recipes">
+            <div class="recipes__item-name">
+                {{item.title}}
+            </div>
+            <div class="recipes__item-desc">
+                {{item.body}}
+            </div>
+            <div class="recipes__item-id">
+                {{item.id}}
+            </div>
+            <div class="recipes__item-tag">
+                {{item.tags}}
+            </div>
+            <div class="recipes__item-buttons">
+                <img class="recipes__item-edit" src="../../../assets/editAdmin.svg" alt="editAdmin" (click)="editRecipe(item.id)">
+                <img class="recipes__item-delete" src="../../../assets/delete.svg" alt="delete" (click)="deleteRecipe(item.id)">
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

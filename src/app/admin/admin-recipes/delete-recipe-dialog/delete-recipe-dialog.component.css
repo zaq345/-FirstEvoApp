@@ -1,0 +1,65 @@
+.dialog {
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+    padding-bottom: 16px;
+
+}
+
+.dialog__img-wrap {
+    width: 40px;
+    height: 40px;
+    background-color: #FEE2E2;
+    border-radius: 50%;
+    display: flex;
+    margin-right: 15px;
+}
+
+.dialog__img {
+    width: 24px;
+    height: 24px;
+    margin: auto;
+}
+
+.dialog__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 12px 24px;
+    background-color: #F9FAFB;
+}
+
+.dialog__title {
+    color: #111827;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+}
+
+.dialog__text {
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+}
+
+.dialog__cancel{
+    border: 1px solid #D1D5DB;
+    padding: 9px 17px;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+.dialog__delete{
+    cursor: pointer;
+    border: none;
+    background-color: #DD0035;
+    color: white;
+    padding: 9px 17px;
+    border-radius: 6px;
+    margin-left: 10px;
+}

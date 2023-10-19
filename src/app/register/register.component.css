@@ -1,0 +1,83 @@
+.reg {
+    display: flex;
+    flex-direction: column;
+    max-width: 448px;
+    margin: 200px auto;
+    /* margin-top: 156px; */
+}
+
+.reg__wrap {
+    width: 100%;
+}
+
+.reg__title {
+    color: #111827;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 36px;
+    margin-bottom: 36px;
+}
+
+.reg__card {
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.reg__login,
+.reg__password {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.reg__login-label,
+.reg__password-label {
+    color: #374151;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.reg__login-input,
+.reg__password-input {
+    padding: 9px 13px;
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+.reg__login-input.error,
+.reg__password-input.error{
+    border: 1px solid #FCA5A5;
+}
+
+.reg__error-ico{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 9px;
+    right: 13px;
+}
+
+.reg__btn {
+    height: 38px;
+    padding: 9px 17px;
+    border-radius: 6px;
+    background: #3A3395;
+    border: none;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    color: white;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.reg__btn_disabled{
+    background-color: #606060;
+}

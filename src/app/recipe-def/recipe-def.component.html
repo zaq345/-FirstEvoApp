@@ -1,0 +1,203 @@
+<div class="recipe__wrap">
+    <div class="recipe" *ngIf="recipe">
+        <div class="recipe__top">
+
+            <div class="recipe__top-text">
+                <p class="recipe__title">{{recipe.title}}</p>
+                <div class="recipe__params">
+
+                    <div class="recipe__user">
+                        <img class="recipe__user-img" [src]="recipe.user.image" alt="">
+                        <div class="recipe__user-about">
+                            <p class="recipe__user-name">{{recipe.user.name}}</p>
+                            <p class="recipe__user-date">{{recipe.user.date | date}}</p>
+                        </div>
+                    </div>
+
+                    <div class="recipe__params-divider"></div>
+
+                    <div class="recipe__time-block">
+                        <img class="recipe__time-img" src="../../assets/time.svg" alt="time">
+                        <div class="recipe__time-text">
+                            <p class="recipe__time-title">ВРЕМЯ ПРИГОТОВЛЕНИЯ</p>
+                            <p class="recipe__time-value">
+                                {{recipe.timeCooking | time}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="recipe__params-divider"></div>
+
+                    <div class="recipe__tag-block">
+                        <img class="recipe__tag-img" src="../../assets//type.svg" alt="type">
+                        <p class="recipe__tag">
+                            {{recipe.tags}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="recipe__top-btns">
+                <div class="recipe__top-print">
+                    <button class="recipe__top-btn" (click)="print()">
+                        <img class="recipe__top-btn-print" src="../../assets/printer.svg" alt="printer">
+                    </button>
+                    <p class="recipe__top-btn-text">РАСПЕЧАТАТЬ</p>
+                </div>
+                <div class="recipe__top-share">
+                    <button class="recipe__top-btn" (click)="share('250ms', '250ms')">
+                        <img class="recipe__top-btn-share" src="../../assets/share.svg" alt="share">
+                    </button>
+                    <p class="recipe__top-btn-text">ПОДЕЛИТЬСЯ</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="recipe__img-wrap">
+            <img class="recipe__img-main" [src]="recipe.image" alt="recipe.image">
+
+            <div class="recipe__values">
+                <p class="recipe__values-title">Пищевая ценность</p>
+
+                <div class="recipe__values-val">
+                    <p class="recipe__values-val-name">Калории</p>
+                    <p class="recipe__values-val-num">{{recipe.foodValue.calories}} ккал</p>
+                </div>
+                <div class="recipe__values-val">
+                    <p class="recipe__values-val-name">Жиры</p>
+                    <p class="recipe__values-val-num">{{recipe.foodValue.fats}} г</p>
+                </div>
+                <div class="recipe__values-val">
+                    <p class="recipe__values-val-name">Углеводы</p>
+                    <p class="recipe__values-val-num">{{recipe.foodValue.carbohydrates}} г</p>
+                </div>
+                <div class="recipe__values-val">
+                    <p class="recipe__values-val-name">Белки</p>
+                    <p class="recipe__values-val-num">{{recipe.foodValue.belki}} г</p>
+                </div>
+
+                <div class="spacer"></div>
+                <p class="recipe__values-text">Значения приблизительные</p>
+            </div>
+        </div>
+
+        <p class="recipe__body">
+            {{recipe.body}}
+        </p>
+
+        <div class="recipe__process">
+            <div class="recipe__process-main">
+                <p class="recipe__process-main-title">Ингредиенты</p>
+
+                <div class="recipe__ingredients">
+                    <p class="recipe__ingredients-title">
+                        Что вам пригодиться
+                    </p>
+                    <div class="recipe__ingredients-list">
+
+                        <div class="recipe__ingredient" *ngFor="let ingredient of ingredients">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" [(ngModel)]="ingredient.checked" />
+                                <span class="checkbox-icon"></span>
+                                <span class="checkbox-label" [ngClass]="{'strikethrough': ingredient.checked}">
+                                    {{ ingredient.item }}
+                                </span>
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="recipe__details">
+                    <p class="recipe__details-title">
+                        Шаги приготовления
+                    </p>
+                    <div class="recipe__details-list">
+
+                        <div class="recipe__detail" *ngFor="let step of details">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" [(ngModel)]="step.checked" />
+                                <span class="checkbox-icon"></span>
+                                <div>
+                                    <p class="checkbox-label recipe__detail-title" [ngClass]="{'strikethrough': step.checked}">
+                                        {{ step.title }}
+                                    </p>
+                                    <p class="checkbox-label recipe__detail-text" [ngClass]="{'strikethrough': step.checked}">
+                                        {{ step.body }}
+                                    </p>
+                                </div>
+
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="recipe__process-others">
+                <p class="recipe__process-others-title">Прочие рецепты</p>
+
+                <div class="recipe__process-others-card" *ngFor="let post of othersPosts" (click)="cardClick(post.id)">
+                    <img class="recipe__process-others-img" [src]="post.image" alt="">
+                    <div>
+                        <p class="recipe__process-others-name">{{post.title}}</p>
+                        <p class="recipe__process-others-user">от {{post.user.name}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="recipe__rec">
+            <p class="recipe__rec-title">Возможно вам понравятся эти рецепты</p>
+
+            <div class="recipe__rec-cards">
+                <div class="recipe__rec-card" *ngFor="let post of tryPosts" (click)="cardClick(post.id)">
+
+                    <button class="recipe__rec-card-btn" (click)="fav(post.id, $event)">
+                        <img src="../../assets/heartGrey.svg" alt="heart" *ngIf="!isFav(post.id)">
+                        <img src="../../assets/heartRed.svg" alt="heart" *ngIf="isFav(post.id)">
+                    </button>
+
+                    <img class="recipe__rec-card-image" [src]="post.image" alt="recipe__rec-card-image">
+                    <p class="recipe__rec-card-title">{{post.title}}</p>
+                    <div class="spacer"></div>
+                    <div class="recipe__rec-card-tags">
+                        <div class="recipe__rec-card-time">
+                            <img src="../../assets/time.svg" alt="time">
+                            <p>{{post.timeCooking | time}}</p>
+                        </div>
+                        <div class="recipe__rec-card-type">
+                            <img src="../../assets/type.svg" alt="tags">
+                            <p>{{post.tags}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="recipe__comments">
+
+            <p class="recipe__comments-title">Комментарии</p>
+            <div class="recipe__comments-items">
+                <div class="recipe__comments-item" *ngFor="let item of recipe.comments">
+                    <img class="recipe__comments-item-img" src="../../assets/avatar.jpg" alt="avatar">
+                    <div>
+                        <p class="recipe__comments-item-name">{{item.user.username}}</p>
+                        <p class="recipe__comments-item-date">{{item.dateCreated | date:'dd.MM.yyyy h:mm'}}</p>
+                        <p class="recipe__comments-item-text">{{item.body}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

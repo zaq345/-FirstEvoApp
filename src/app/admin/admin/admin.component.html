@@ -1,0 +1,17 @@
+<div class="admin__wrap">
+    <div class="admin">
+        <p class="admin__title">Панель администрирования</p>
+        <div class="admin__buttons">
+            <button class="admin__buttons__btn" (click)="changeActiveBtn('btnUsers')" routerLink="/admin/users"
+                [class.btn-active]="btnUsers">
+                Управление пользователями
+            </button>
+            <button class="admin__buttons__btn" (click)="changeActiveBtn('btnRecipes')" routerLink="/admin/recipes"
+                [class.btn-active]="btnRecipes">
+                Управление рецептами
+            </button>
+        </div>
+        
+    </div>
+</div>
+<router-outlet></router-outlet>

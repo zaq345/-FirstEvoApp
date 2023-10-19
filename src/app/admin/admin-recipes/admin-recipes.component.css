@@ -1,0 +1,118 @@
+.recipes {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.recipes__wrap {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.recipes__header {
+    display: flex;
+    width: 1280px;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px 8px 0 0;
+}
+
+.recipes__header-name,
+.recipes__header-desc,
+.recipes__header-id,
+.recipes__header-tag {
+
+    color: #6B7280;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+}
+
+.recipes__header-name {
+    width: 330px;
+}
+
+.recipes__header-desc {
+    width: 470px;
+}
+
+.recipes__header-id {
+    width: 150px;
+}
+
+.recipes__header-tag {
+    width: 141px;
+}
+
+.recipes__item {
+    border: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: row;
+}
+
+.recipes__item:nth-child(2n-1) {
+    background-color: #F9FAFB;
+}
+
+.recipes__item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.recipes__item-name {
+    width: 330px;
+    padding: 12px 24px;
+    color: #111827;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.recipes__item-desc {
+    width: 470px;
+    padding: 12px 24px;
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.recipes__item-id {
+    width: 150px;
+    padding: 12px 24px;
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.recipes__item-tag {
+    width: 141px;
+    padding: 12px 24px;
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.recipes__item-buttons {
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.recipes__item-edit,
+.recipes__item-delete {
+    width: 24px;
+    height: 24px;
+    margin: 0 16px;
+    cursor: pointer;
+}

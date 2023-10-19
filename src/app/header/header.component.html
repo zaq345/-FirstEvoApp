@@ -1,0 +1,51 @@
+<div class="header__wrap">
+    <div class="header">
+        <div class="links__wrap">
+            <a routerLink="/" class="header__title">
+                Foodie
+            </a>
+
+            <div class="header__links">
+                <a routerLink="/" class="header__link">Главная</a>
+                <a routerLink="/recipe" class="header__link">Каталог рецептов</a>
+            </div>
+        </div>
+
+        <button routerLink="/auth" class="header__login" *ngIf="showLoginBtn()">Login</button>
+
+        <div class="header__user" *ngIf="showUser()">
+            <img class="header__create-recipe" src="../../assets/edit.svg" alt="edit" routerLink="/create-recipe">
+            <div class="header__block-user" (click)="toggleMenu()">
+                <img class="header__user-img" [src]="authObject.image" alt="user">
+                <div class="header__user-data">
+                    <p class="header__user-fullname">{{authObject.fullname}}</p>
+                    <p class="header__user-role">{{showRole(authObject.role)}}</p>
+                </div>                
+            </div>
+
+            <div class="header__menu" *ngIf="isMenuOpen" (document:click)="onDocumentClick($event)">
+                <div class="header__menu-item">
+                    Вы вошли как <b>{{authObject.username}}</b>
+                </div>
+                <div class="header__menu-item" routerLink="/create-recipe">
+                    Создать рецепт
+                </div>
+                <div class="header__menu-item">
+                    Настройки аккаунта
+                </div>
+                <div class="header__menu-item" *ngIf="showAdminBtn()" routerLink="/admin/users">
+                    Администрирование
+                </div>
+                <!-- <div class="header__menu-item" routerLink="/admin/users">
+                    для теста 401 для user
+                </div>
+                <div class="header__menu-item" routerLink="/test">
+                    для теста 404
+                </div> -->
+                <div class="header__menu-item" (click)="exit()">
+                    Выход
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

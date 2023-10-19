@@ -1,0 +1,129 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.users__wrap {
+    width: 100%;
+}
+
+.users__header {
+    background-color: #F9FAFB;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #E5E7EB;
+}
+
+.users__header-name,
+.users__header-status,
+.users__header-role {
+    padding: 12px 24px;
+    color: #6B7280;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.users__header-name {
+    width: 820px;
+}
+
+.users__header-status {
+    width: 143px;
+}
+
+.users__header-role {
+    width: 146px;
+}
+
+.users__user {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #E5E7EB;
+}
+
+.users__user:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.users__user-img-and-name {
+    display: flex;
+    flex-direction: row;
+    width: 820px;
+    padding: 12px 24px;
+}
+
+.users__user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.users__user-fullname {
+    color: #111827;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0;
+}
+
+.users__user-username {
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+}
+
+.users__user-status {
+    width: 143px;
+    padding: 12px 24px;
+    display: flex;
+}
+
+.users__user-status-el {
+    width: 70px;
+    border-radius: 10px;
+    background: #D1FAE5;
+    margin: auto 0;
+    color: #065F46;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.users__user-role {
+    width: 146px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    color: #6B7280;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.users__user-edit {
+    color: var(--link-color, #3A3395);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 171px;
+}

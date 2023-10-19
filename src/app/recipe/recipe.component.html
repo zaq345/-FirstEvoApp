@@ -1,0 +1,30 @@
+<div class="recipe__wrap">
+    <div class="recipe">
+
+        <p class="recipe__title">Все рецепты</p>
+
+        <div class="recipe__cards">
+            <div class="recipe__card" *ngFor="let post of posts" (click)="cardClick(post.id)">
+                
+                <button class="recipe__card-btn" (click)="fav(post.id, $event)">
+                    <img src="../../assets/heartGrey.svg" alt="heart" *ngIf="!isFav(post.id)">
+                    <img src="../../assets/heartRed.svg" alt="heart" *ngIf="isFav(post.id)">
+                </button>
+
+                <img class="recipe__card-image" [src]="post.image" alt="recipe__card-image">
+                <p class="recipe__card-title">{{post.title}}</p>
+                <div class="spacer"></div>
+                <div class="recipe__card-tags">
+                    <div class="recipe__card-time">
+                        <img src="../../assets/time.svg" alt="time">
+                        <p>{{post.timeCooking | time}}</p>
+                    </div>
+                    <div class="recipe__card-type">
+                        <img src="../../assets/type.svg" alt="tags">
+                        <p>{{post.tags}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

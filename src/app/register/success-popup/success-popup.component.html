@@ -1,0 +1,17 @@
+<div class="popup">
+    <img src="../../assets/popupCircle.svg" alt="popupCircle">
+    <div>
+        <p class="popup__title" matSnackBarLabel>
+            Вы успешно зарегистрировались
+        </p>
+        <p class="popup__text">
+            Теперь можно пользоваться сайтом
+        </p>
+    </div>
+
+    <span matSnackBarActions>
+        <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">
+            <img src="../../assets/popupCross.svg" alt="popupCross">
+        </button>
+    </span>
+</div>

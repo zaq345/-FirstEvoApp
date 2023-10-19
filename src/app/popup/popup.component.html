@@ -1,0 +1,17 @@
+<div class="popup">
+    <img src="../../assets/popupCircle.svg" alt="popupCircle">
+    <div>
+        <p class="popup__title" matSnackBarLabel>
+            Добавлено в избранное
+        </p>
+        <p class="popup__text">
+            Сохранили этот рецепт для вас
+        </p>
+    </div>
+
+    <span matSnackBarActions>
+        <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">
+            <img src="../../assets/popupCross.svg" alt="popupCross">
+        </button>
+    </span>
+</div>

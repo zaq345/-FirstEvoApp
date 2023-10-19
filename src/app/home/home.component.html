@@ -1,0 +1,230 @@
+<div class="home__wrap">
+    <div class="home">
+
+        <div class="slider__wrap">
+            <div class="slider__btn" (click)="slider.prev()"></div>
+            <div *ngIf="favoritePosts" class="keen-slider slider" #sliderRef>
+                <div class="keen-slider__slide number-slide slider__slide" *ngFor="let item of favoritePosts">
+
+                    <div class="slider__desc">
+
+                        <p class="slider__slide-title">
+                            {{item.title}}
+                        </p>
+                        <p class="slider__slide-text">
+                            {{item.body}}
+                        </p>
+
+                        <div class="spacer"></div>
+
+                        <div class="slider__slide-tags">
+                            <div class="slider__slide-time">
+                                <img src="../../assets/time.svg" alt="time">
+                                <p>{{item.timeCooking | time}}</p>
+                            </div>
+                            <div class="slider__slide-type">
+                                <img src="../../assets/type.svg" alt="tags">
+                                <p>{{item.tags}}</p>
+                            </div>
+                        </div>
+                        <div class="slider__slide-other">
+                            <div class="slider__slide-user">
+                                <img class="slider__slide-user-pic" [src]="item.user.image" alt="user pic">
+                                <div class="slider__slide-user-desc">
+                                    <p class="slider__slide-user-name">{{item.user.name}}</p>
+                                    <p class="slider__slide-user-date">{{item.user.date | date}}</p>
+                                </div>
+                            </div>
+                            <button class="slider__slide-btn" (click)="cardClick(item.id)">
+                                <p class="slider__slide-btn-text">Посмотреть</p>
+                                <img class="slider__slide-btn-img" src="../../assets/PlayCircle.svg" alt="">
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="slider__slide-img">
+                        <img [src]="item.image" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="slider__btn" (click)="slider.next()"></div>
+        </div>
+
+        <div class="best__wrap">
+            <div class="best">
+                <p class="best__title">
+                    Лучшие рецепты
+                </p>
+                <p class="best__text">
+                    На нашем сайте вы найдете лучшие рецепты, которые помогут вам создавать великолепные блюда и
+                    порадовать своих близких и гостей своим кулинарным мастерством.
+                </p>
+                <div class="best__cards">
+                    <div class="best__card" *ngFor="let post of rndBestPosts.slice(0, showCardsCount)"
+                        (click)="cardClick(post.id)">
+
+                        <button class="best__card-btn" (click)="fav(post.id, $event)">
+                            <img src="../../assets/heartGrey.svg" alt="heart" *ngIf="!isFav(post.id)">
+                            <img src="../../assets/heartRed.svg" alt="heart" *ngIf="isFav(post.id)">
+                        </button>
+
+                        <img class="best__card-image" [src]="post.image" alt="best__card-image">
+                        <p class="best__card-title">{{post.title}}</p>
+                        <div class="spacer"></div>
+                        <div class="best__card-tags">
+                            <div class="best__card-time">
+                                <img src="../../assets/time.svg" alt="time">
+                                <p>{{post.timeCooking | time}}</p>
+                            </div>
+                            <div class="best__card-type">
+                                <img src="../../assets/type.svg" alt="tags">
+                                <p>{{post.tags}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="best__show" *ngIf="btnShowMore" (click)="showMore()">
+                    Посмотреть еще
+                </button>
+            </div>
+        </div>
+
+        <div class="try__wrap">
+            <div class="try">
+                <div class="try__head">
+                    <p class="try__title">
+                        Попробуйте эти вкусные рецепты
+                    </p>
+                    <p class="try__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolorum magni veritatis blanditiis
+                        ea cupiditate. Doloremque, qui reiciendis labore voluptatibus voluptas aliquid a sunt optio
+                        eveniet natus praesentium veniam voluptates.
+                    </p>
+                </div>
+                <div class="try__cards">
+                    <div class="try__card" *ngFor="let post of rndTryPosts" (click)="cardClick(post.id)">
+
+                        <button class="try__card-btn" (click)="fav(post.id, $event)">
+                            <img src="../../assets/heartGrey.svg" alt="heart" *ngIf="!isFav(post.id)">
+                            <img src="../../assets/heartRed.svg" alt="heart" *ngIf="isFav(post.id)">
+                        </button>
+
+                        <img class="try__card-image" [src]="post.image" alt="try__card-image">
+                        <p class="try__card-title">{{post.title}}</p>
+                        <div class="spacer"></div>
+                        <div class="try__card-tags">
+                            <div class="try__card-time">
+                                <img src="../../assets/time.svg" alt="time">
+                                <p>{{post.timeCooking | time}}</p>
+                            </div>
+                            <div class="try__card-type">
+                                <img src="../../assets/type.svg" alt="tags">
+                                <p>{{post.tags}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="why__wrap">
+            <div class="why">
+                <p class="why__title">
+                    Почему именно мы?
+                </p>
+                <div class="why__cols">
+
+                    <div class="why__col">
+                        <div class="why__col-checkMark">
+                            <img src="../../assets/checkMark.svg" alt="">
+                        </div>
+                        <div class="why__col-text">
+                            <p class="why__col-title">
+                                Проверенные рецепты
+                            </p>
+                            <p class="why__col-body">
+                                Вы можете найти множество проверенных рецептов, которые помогут вам приготовить вкусные
+                                и разнообразные блюда для всей семьи.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="why__col">
+                        <div class="why__col-checkMark">
+                            <img src="../../assets/checkMark.svg" alt="">
+                        </div>
+                        <div class="why__col-text">
+                            <p class="why__col-title">
+                                Для всех
+                            </p>
+                            <p class="why__col-body">
+                                Вы сможете найти легкие и вкусные блюда, которые понравятся и детям, и взрослым.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="why__col">
+                        <div class="why__col-checkMark">
+                            <img src="../../assets/checkMark.svg" alt="">
+                        </div>
+                        <div class="why__col-text">
+                            <p class="why__col-title">
+                                Огромное разнообразие
+                            </p>
+                            <p class="why__col-body">
+                                Разнообразие рецептов для всех порадует самых разносторонних гурманов
+                            </p>
+                        </div>
+                    </div>
+                    <div class="why__col">
+                        <div class="why__col-checkMark">
+                            <img src="../../assets/checkMark.svg" alt="">
+                        </div>
+                        <div class="why__col-text">
+                            <p class="why__col-title">
+                                Храним рецепты для вас
+                            </p>
+                            <p class="why__col-body">
+                                Это отличный способ организовать и хранить свою коллекцию кулинарных рецептов. Вместо
+                                того, чтобы хранить бумажные копии или оставлять их в разных кулинарных книгах.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="sub__wrap">
+            <div class="sub">
+                <div class="sub__text">
+                    <p class="sub__title">
+                        Хотите получать новые рецепты?
+                    </p>
+                    <p class="sub__body">
+                        Не пропустите ни одного вкусного рецепта! Подпишитесь на нашу рассылку, чтобы получать новые
+                        кулинарные идеи и рецепты прямо в свою почту.
+                    </p>
+                </div>
+                <form class="sub__form">
+                    <input type="url" class="sub__form-input" [(ngModel)]="email" placeholder="Введите ваш email..."
+                        required #mail="ngModel" name="mail">
+                    <button class="sub__form-btn" type="submit" [disabled]="mail.invalid"
+                        [ngClass]="{ 'disabled': mail.invalid }" (click)="subscribe()">Подписаться</button>
+                </form>
+            </div>
+        </div>
+
+        <div appBottomBanner class="bottom-banner__wrap">
+            <div class="bottom-banner">
+                <div class="bottom-banner__left">
+                    <img src="../../assets/speakerphone.svg" alt="speakerphone">
+                    <p class="bottom-banner__text">Хорошие новости! Мы открыли наш интернет-магазин</p>
+                </div>
+                <img class="bottom-banner__cross" src="../../assets/cross.svg" alt="cross" (click)="closeBanner()">
+            </div>
+        </div>
+        
+    </div>
+</div>

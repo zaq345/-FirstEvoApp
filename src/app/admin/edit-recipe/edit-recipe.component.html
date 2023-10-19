@@ -1,0 +1,141 @@
+<div class="update__wrap">
+    <div class="update">
+        <p class="update__title">
+            Редактирование рецепта: {{recipeOldName}}
+        </p>
+        <form class="form">
+            <p class="form__title">Основная информация</p>
+            <div class="divider"></div>
+
+            <div class="form__long">
+                <label class="form__long-label" for="name">Название рецепта</label>
+                <input class="form__long-input" type="text" id="name" name="name" required [(ngModel)]="recipeName"
+                    #name="ngModel" [ngClass]="{ 'error': name.touched && name.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="name.touched && name.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__desc">
+                <label class="form__desc-label" for="desc">Краткое описание</label>
+                <div>
+                    <textarea cols="30" rows="10" class="form__desc-input" type="text" id="desc" name="desc" required
+                        [(ngModel)]="recipeDesc" #desc="ngModel"
+                        [ngClass]="{ 'error': desc.touched && desc.invalid }"></textarea>
+                    <img class="error-ico" src="../../assets/error.svg" alt="error"
+                        *ngIf="desc.touched && desc.invalid">
+                    <p class="form__desc-text">Опишите о чем ваш рецепт</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+
+            <!--  -->
+
+            <!--  -->
+            <p class="form__title">Дополнительная информация</p>
+            <div class="divider"></div>
+
+            <div class="form__short">
+                <label class="form__short-label" for="cat">Категория</label>
+                <input class="form__short-input" type="text" id="cat" name="cat" required [(ngModel)]="recipeCat"
+                    #cat="ngModel" [ngClass]="{ 'error': cat.touched && cat.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="cat.touched && cat.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__short">
+                <label class="form__short-label" for="time">Время приготовления</label>
+                <input class="form__short-input" type="number" id="time" name="time" required [(ngModel)]="recipeTime"
+                    #time="ngModel" [ngClass]="{ 'error': time.touched && time.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="time.touched && time.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__long">
+                <label class="form__long-label" for="firstIng">Первый ингридиент</label>
+                <input class="form__long-input" type="text" id="firstIng" name="firstIng" required
+                    [(ngModel)]="recipeFirstIng" #firstIng="ngModel"
+                    [ngClass]="{ 'error': firstIng.touched && firstIng.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error"
+                    *ngIf="firstIng.touched && firstIng.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__long">
+                <label class="form__long-label" for="protein">Белки</label>
+                <input class="form__long-input" type="number" id="protein" name="protein" required
+                    [(ngModel)]="recipeProtein" #protein="ngModel"
+                    [ngClass]="{ 'error': protein.touched && protein.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error"
+                    *ngIf="protein.touched && protein.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__short">
+                <label class="form__short-label" for="fats">Жиры</label>
+                <input class="form__short-input" type="number" id="fats" name="fats" required [(ngModel)]="recipeFats"
+                    #fats="ngModel" [ngClass]="{ 'error': fats.touched && fats.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="fats.touched && fats.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__short">
+                <label class="form__short-label" for="carb">Углеводы</label>
+                <input class="form__short-input" type="number" id="carb" name="carb" required [(ngModel)]="recipeCarb"
+                    #carb="ngModel" [ngClass]="{ 'error': carb.touched && carb.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="carb.touched && carb.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__short">
+                <label class="form__short-label" for="cals">Калории</label>
+                <input class="form__short-input" type="number" id="cals" name="cals" required [(ngModel)]="recipeCals"
+                    #cals="ngModel" [ngClass]="{ 'error': cals.touched && cals.invalid }">
+                <img class="error-ico" src="../../assets/error.svg" alt="error" *ngIf="cals.touched && cals.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <!--  -->
+            <p class="form__title">Детальная информация</p>
+            <p class="form__text">Детально опишите первый шаг вашего рецепта</p>
+            <div class="divider"></div>
+
+            <div class="form__long">
+                <label class="form__long-label" for="firstAction">Краткое действие первого шага</label>
+                <input class="form__long-input" type="text" id="firstAction" name="firstAction" required
+                    [(ngModel)]="recipeFirstAction" #firstAction="ngModel"
+                    [ngClass]="{ 'error': firstAction.touched && firstAction.invalid }"
+                    placeholder="Разогреть сковородку">
+                <img class="error-ico" src="../../assets/error.svg" alt="error"
+                    *ngIf="firstAction.touched && firstAction.invalid">
+            </div>
+            <div class="divider"></div>
+
+            <div class="form__desc">
+                <label class="form__desc-label" for="firstActionFull">Краткое описание</label>
+                <textarea cols="30" rows="10" class="form__desc-input" type="text" id="firstActionFull"
+                    placeholder="Разогреть сковородку. Затем положить туда репчатый лук" name="firstActionFull" required
+                    [(ngModel)]="recipeFirstActionFull" #firstActionFull="ngModel"
+                    [ngClass]="{ 'error': firstActionFull.touched && firstActionFull.invalid }"></textarea>
+                <img class="error-ico" src="../../assets/error.svg" alt="error"
+                    *ngIf="firstActionFull.touched && firstActionFull.invalid">
+
+            </div>
+            <div class="divider"></div>
+
+            <!--  -->
+            <button class="form__button" type="submit" (click)="updateRecipe()" [disabled]="name.invalid || desc.invalid 
+                || cat.invalid || time.invalid || firstIng.invalid 
+                || protein.invalid || fats.invalid || carb.invalid
+                || cals.invalid || firstAction.invalid 
+                || firstActionFull.invalid" [class.form__button_disabled]="name.invalid || desc.invalid 
+                || cat.invalid || time.invalid || firstIng.invalid 
+                || protein.invalid || fats.invalid || carb.invalid
+                || cals.invalid || firstAction.invalid 
+                || firstActionFull.invalid">
+                <img class="form__button-img" src="../../assets/letter.svg" alt="letter">
+                <p class="form__button-text">Обновить рецепт</p>
+            </button>
+
+        </form>
+    </div>
+</div>

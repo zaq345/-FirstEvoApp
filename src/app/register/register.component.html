@@ -1,0 +1,35 @@
+<div class="reg__wrap">
+    <div class="reg">
+        <p class="reg__title">Зарегистрируйте ваш аккаунт</p>
+
+        <form>
+            <div class="reg__card">
+
+                <div class="reg__login">
+                    <label class="reg__login-label" for="login">Email</label>
+                    <input class="reg__login-input" type="text" id="login" name="login" required [(ngModel)]="email"
+                        #mail="ngModel" name="mail" [ngClass]="{ 'error': mail.touched && mail.invalid }"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}">
+                    <img class="reg__error-ico" src="../../assets/error.svg" alt="error"
+                        *ngIf="mail.touched && mail.invalid">
+                </div>
+
+                <div class="reg__password">
+                    <label class="reg__password-label" for="password">Пароль</label>
+                    <input class="reg__password-input" type="text" id="password" name="password" required
+                        [(ngModel)]="password" #pass="ngModel" name="pass"
+                        [ngClass]="{ 'error': pass.touched && pass.invalid }">
+                    <img class="reg__error-ico" src="../../assets/error.svg" alt="error"
+                        *ngIf="pass.touched && pass.invalid">
+                </div>
+
+                <button class="reg__btn" type="submit" [disabled]="pass.invalid || mail.invalid"
+                    (click)="registerUser()" [class.reg__btn_disabled]="pass.invalid || mail.invalid">
+                    Зарегестрироваться
+                </button>
+
+            </div>
+        </form>
+
+    </div>
+</div>

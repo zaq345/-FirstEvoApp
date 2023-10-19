@@ -1,0 +1,35 @@
+<div class="users__wrap">
+    <div class="users">
+        <div class="users__header">
+            <div class="users__header-name">Наименование</div>
+            <div class="users__header-status">Статус</div>
+            <div class="users__header-role">Роль</div>
+            <!-- <div class="users__header-empty"></div> -->
+        </div>
+        <div class="users__user" *ngFor="let user of users">
+
+            <div class="users__user-img-and-name">
+                <img class="users__user-img" [src]="user.image" alt="uesr-img">
+                <div>
+                    <p class="users__user-fullname">{{user.fullName}}</p>
+                    <p class="users__user-username">{{user.username}}</p>
+                </div>
+            </div>
+
+            <div class="users__user-status">
+                <div class="users__user-status-el">
+                    Активен
+                </div>
+            </div>
+
+            <div class="users__user-role">
+                {{returnUserRole(user.role)}}
+            </div>
+
+            <div class="users__user-edit">
+                Редактировать
+            </div>
+
+        </div>
+    </div>
+</div>

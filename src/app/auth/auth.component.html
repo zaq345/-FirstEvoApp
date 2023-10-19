@@ -1,0 +1,52 @@
+<div class="auth__wrap">
+    <div class="auth">
+        <p class="auth__title">Войдите в ваш аккаунт</p>
+
+        <form>
+            <div class="auth__card">
+
+                <div class="auth__login">
+                    <label class="auth__login-label" for="login">Логин</label>
+                    <input class="auth__login-input" type="text" id="login" name="login" required [(ngModel)]="login"
+                        #log="ngModel" name="log" [ngClass]="{ 'error': log.touched && log.invalid }">
+                    <img class="auth__error-ico" src="../../assets/error.svg" alt="error"
+                        *ngIf="log.touched && log.invalid">
+                </div>
+
+                <div class="auth__password">
+                    <label class="auth__password-label" for="password">Пароль</label>
+                    <input class="auth__password-input" type="text" id="password" name="password" required
+                        [(ngModel)]="password" #pass="ngModel" name="pass" [ngClass]="{ 'error': pass.touched && pass.invalid }">
+                    <img class="auth__error-ico" src="../../assets/error.svg" alt="error"
+                        *ngIf="pass.touched && pass.invalid">
+                </div>
+
+                <div class="auth__support">
+                    <div class="auth__checkbox">
+                        <input class="auth__checkbox-input" type="checkbox" id="save" name="save">
+                        <label class="auth__checkbox-label" for="save">Запомнить меня</label>
+                    </div>
+                    <a class="auth__reg" routerLink="/register">Зарегистрироваться</a>
+                </div>
+
+                <button class="auth__btn" type="submit" [disabled]="pass.invalid || log.invalid" (click)="loginUser()"
+                    [class.auth__btn_disabled]="pass.invalid || log.invalid"
+                >
+                    Вход
+                </button>
+
+                <div class="auth__divider">
+                    <img src="../../assets/divider.svg" alt="divider">
+                    <p class="auth__divider-text">Или войти через</p>
+                    <img src="../../assets/divider.svg" alt="divider">
+                </div>
+
+                <button class="auth__other-btn">
+                    <img src="../../assets/githubDark.svg" alt="githubDark">
+                </button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
